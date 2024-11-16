@@ -1,0 +1,21 @@
+<section class="container d-flex justify-content-center align-items-center h-100">
+  <div class="login">
+    <form [formGroup]="loginForm" class="d-flex flex-column p-3">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" type="email" matInput />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" type="password"  matInput />
+      </mat-form-field>
+
+      <button class="btn btn-dark" (click)="onSubmit()" [disabled]="loginForm.invalid">
+        Sign In
+      </button>
+    </form>
+  </div>
+</section>
+
+
