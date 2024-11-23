@@ -28,4 +28,6 @@ export class LoginComponent {
   onSubmit():void{
     console.log(this.loginForm.value.email, this.loginForm.value.password)
   }
+
+  
 }
