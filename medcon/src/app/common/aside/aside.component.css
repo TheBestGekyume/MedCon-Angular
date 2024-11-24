@@ -1,0 +1,12 @@
+aside{
+    width: 200px;
+    height: 100%;
+    color: white;
+}
+
+ul{
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+

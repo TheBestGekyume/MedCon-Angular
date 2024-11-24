@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { LoginComponent } from './modules/auth/components/login/login.component';
 import { SignupComponent } from './modules/auth/components/signup/signup.component';
 import { HeaderComponent } from "./common/header/header.component";
+import { AsideComponent } from "./common/aside/aside.component";
 
 
 
@@ -13,8 +14,9 @@ import { HeaderComponent } from "./common/header/header.component";
     RouterOutlet,
     LoginComponent,
     SignupComponent,
-    HeaderComponent
-  ],
+    HeaderComponent,
+    AsideComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
