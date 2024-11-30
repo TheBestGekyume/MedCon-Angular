@@ -17,5 +17,7 @@ import { RouterLink } from '@angular/router';
 export class AsideComponent {
   logout(): void {
     sessionStorage.removeItem('userToken')
+    sessionStorage.removeItem('userEmail')
+    sessionStorage.removeItem('userName')
   }
 }

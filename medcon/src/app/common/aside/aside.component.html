@@ -1,13 +1,13 @@
 <section class="container-aside">
   <aside class="pb-5">
     <div class="logo">
-      <p routerLink="/appointments/main"><span class="logo-med">Med</span>Con</p>
+      <p routerLink="/appointments"><span class="logo-med">Med</span>Con</p>
     </div>
 
     <div class="buttons">
       <ul class="w-100">
         <li class="menu-btn px-2"><a routerLink="/appointments/create">Cadastrar Consultas</a></li>
-        <li class="menu-btn px-2"><a routerLink="/appointments/main">Ver agendamentos</a></li>
+        <li class="menu-btn px-2"><a routerLink="/appointments">Ver agendamentos</a></li>
       </ul>
     </div>
 
@@ -15,7 +15,7 @@
       <i class="fa-regular fa-user user-icon"></i>
       <p class="user-message">Bem vindo, User</p>
 
-      <button routerLink="/auth/login" (click)="logout()">Log Out</button>
+      <button routerLink="/auth/login" (click)="logout()" class="btn buttonPink">Log Out</button>
     </div>
   </aside>
 </section>

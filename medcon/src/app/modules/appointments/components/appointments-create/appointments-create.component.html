@@ -1,1 +1,48 @@
 <app-aside class="h-100 "></app-aside>
+
+<section class="container-fluid d-flex flex-column justify-content-center align-items-center vh-100 ">
+    <h1 class="logo mt-0 p-3"><span class="logo-med">Agendar</span> Consulta</h1>
+
+    <div class="sign-up form-transparent">
+        <form [formGroup]="appointmentForm" class="d-flex flex-column p-3">
+            <mat-form-field appearance="outline">
+                <mat-label>Especialidade</mat-label>
+                <input formControlName="speciality" type="text" matInput />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Médico</mat-label>
+                <input formControlName="doctor" type="text" matInput />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Data</mat-label>
+                <input formControlName="date" type="date" matInput />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Hora</mat-label>
+                <input formControlName="time" type="time" matInput />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Observações</mat-label>
+                <textarea formControlName="obs" cdkTextareaAutosize matInput></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Status</mat-label>
+                <select matNativeControl required formControlName="status">
+                    <option value="ATIVO" selected>Ativo</option>
+                    <option value="ANDAMENTO">Andamento</option>
+                    <option value="INATIVO">Inativo</option>
+                </select>
+            </mat-form-field>
+
+            <button class="btn buttonPink" (click)="onSubmit()" type="submit">
+                Cadastrar Consulta
+            </button>
+
+        </form>
+    </div>
+</section>

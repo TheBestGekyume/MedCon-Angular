@@ -1,8 +1,8 @@
-.container-aside{
+.container-aside {
     width: 175px;
 }
 
-aside{
+aside {
     position: fixed;
     width: 175px;
     height: 100%;
@@ -13,27 +13,38 @@ aside{
     align-items: center;
 }
 
-.logo{
+.logo {
     font-size: 30px;
     margin-top: 20px;
     font-weight: 700;
 }
 
-.logo-med{
+.logo-med {
     color: #f03f95;
 }
 
-.buttons{
+.buttons {
     margin-top: 50px;
 }
 
-ul{
+
+.buttonPink {
+    background: #f03f95;
+    color: #fff;
+    transition: 150ms;
+}
+
+.buttonPink:hover {
+    background: #f03f95a5;
+}
+
+ul {
     padding: 0;
     text-decoration: none;
     list-style: none;
 }
 
-.menu-btn{
+.menu-btn {
     width: 100%;
     height: 30px;
     margin: 5px 0;
@@ -43,17 +54,17 @@ ul{
     align-items: center;
 }
 
-.menu-btn:hover{
+.menu-btn:hover {
     background-color: #ebe7e7;
 
 }
 
-.menu-btn a{
+.menu-btn a {
     text-decoration: none;
-    color:rgb(142, 139, 139);
+    color: rgb(142, 139, 139);
 }
 
-.user-container{
+.user-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,15 +72,13 @@ ul{
     color: rgb(142, 139, 139);
 }
 
-.user-icon{
+.user-icon {
     font-size: 25px;
     border: 2px solid rgb(142, 139, 139);
     border-radius: 50px;
     padding: 8px;
 }
 
-.user-message{
+.user-message {
     margin-top: 10px;
 }
-
-
