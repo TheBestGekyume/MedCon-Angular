@@ -1,3 +1,41 @@
 .sign-up{
-    border: 1px solid black;
+    border: 2px solid #f03f95;
+    border-radius: 1rem;
+    background: #f9f9f9;
+    padding: 20px 20px 10px;
+    transition: 500ms;
+}
+
+.sign-up:hover{
+    box-shadow: 0px 0px 15px 5px #f03f95;
+}
+
+.logo{
+    font-size: 30px;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.logo-med{
+    color: #f03f95;
+}
+
+.sign-in{
+    color: #000;
+    transition: 150ms;
+    font-style: italic;
+}
+
+.sign-in:hover{
+    color: #444;
+}
+
+.buttonPink{
+    background: #f03f95a5;
+    color: #fff;
+    transition: 150ms;
+}
+.buttonPink:hover{
+    background: #f03f95;
+
 }

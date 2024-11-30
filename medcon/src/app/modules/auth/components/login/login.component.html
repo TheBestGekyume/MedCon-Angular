@@ -1,22 +1,28 @@
-<section class="container d-flex justify-content-center align-items-center h-100">
-    <div class="login">
-      <form [formGroup]="loginForm" class="d-flex flex-column p-3">
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input formControlName="email" type="email" matInput />
-        </mat-form-field>
-  
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input formControlName="password" type="password"  matInput />
-        </mat-form-field>
-  
-        <button class="btn btn-dark" (click)="onSubmit()" [disabled]="loginForm.invalid">
-          Sign In
-        </button>
+<section class="container d-flex flex-column justify-content-center align-items-center vh-100">
+  <h1 class="logo mt-0"><span class="logo-med">Med</span>Con</h1>
 
-        <p class="m-0 mt-4">Não possui uma conta, registre-se</p>
-        <a routerLink="/auth/signup" class="text-center"> Sing up</a>
-      </form>
-    </div>
-  </section>
+  <div class="login">
+    <form [formGroup]="loginForm" class="d-flex flex-column p-3">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" type="email" matInput />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" type="password" matInput />
+      </mat-form-field>
+
+      <button class="btn buttonPink" (click)="onSubmit()" [disabled]="loginForm.invalid">
+        Sign In
+      </button>
+
+      <p class="m-0 mt-4 mb-2">Não possui uma conta?
+        <a routerLink="/auth/signup" class="sign-up text-center">
+          Clique aqui!
+        </a>
+      </p>
+
+    </form>
+  </div>
+</section>
