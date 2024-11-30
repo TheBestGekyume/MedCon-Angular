@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, DestroyRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,20 +16,47 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
+
 export class LoginComponent {
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [Validators.required]),
   })
 
-  onSubmit():void{
-    console.log(this.loginForm.value.email, this.loginForm.value.password)
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private destroyRef: DestroyRef,
+  ) { }
+
+  onSubmit(): void {
+
+    const payload = this.loginForm.getRawValue();
+    this.authService.login(payload).pipe(
+      takeUntilDestroyed(this.destroyRef)
+    )
+    .subscribe({
+      next:(response) => {
+        sessionStorage.setItem('userToken', response.token);
+        this.router.navigate(['/appointments/main']);
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    })
+    
+  
+
   }
 
-  
+
+
+
 }

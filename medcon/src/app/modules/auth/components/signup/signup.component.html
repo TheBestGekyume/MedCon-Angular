@@ -1,39 +1,41 @@
 <section class="container d-flex justify-content-center align-items-center h-100">
-    <div class="sign-up">
-      <form [formGroup]="signUpForm" class="d-flex flex-column p-3">
-        <mat-form-field appearance="outline">
-          <mat-label>Name</mat-label>
-          <input formControlName="name" type="text" matInput />
-        </mat-form-field>
-  
-        <mat-form-field appearance="outline">
-          <mat-label>Age</mat-label>
-          <input formControlName="age" type="number"  matInput />
-        </mat-form-field>
+  <div class="sign-up">
+    <form [formGroup]="signUpForm" class="d-flex flex-column p-3">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" type="text" matInput />
+      </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Phone Number</mat-label>
-            <input formControlName="phoneNumber" type="number"  matInput />
-        </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" type="email" matInput />
+      </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
-            <input formControlName="email" type="email"  matInput />
-        </mat-form-field>
-        
-        <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
-            <input formControlName="password" type="password"  matInput />
-          </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" type="password" matInput />
+      </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Check Password</mat-label>
-            <input formControlName="checkPassword" type="password"  matInput />
-        </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Check Password</mat-label>
+        <input formControlName="checkPassword" type="password" matInput />
+      </mat-form-field>
 
-        <button class="btn btn-dark" (click)="onSubmit()" [disabled]="signUpForm.invalid" routerLink="">
-            Sign Up
-        </button>
-      </form>
-    </div>
-  </section>
+      <mat-form-field appearance="outline">
+        <mat-label>Select Role User</mat-label>
+        <select matNativeControl required formControlName="role">
+          <option value="USER" selected>User</option>
+          <option value="ADMIN">Admin</option>
+        </select>
+      </mat-form-field>
+
+
+      <button class="btn btn-dark" (click)="onSubmit()" [disabled]="signUpForm.invalid">
+        Sign Up
+      </button>
+
+      <p class="m-0 mt-4">Já possui uma conta, entre aqui</p>
+      <a routerLink="/auth/login" class="text-center">Sign in</a>
+    </form>
+  </div>
+</section>
