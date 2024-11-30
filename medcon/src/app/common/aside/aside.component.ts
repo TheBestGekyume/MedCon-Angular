@@ -13,4 +13,9 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./aside.component.css'],
 })
 
-export class AsideComponent {}
+
+export class AsideComponent {
+  logout(): void {
+    sessionStorage.removeItem('userToken')
+  }
+}

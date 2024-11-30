@@ -3,6 +3,8 @@ import { LoginComponent } from './modules/auth/components/login/login.component'
 import { SignupComponent } from './modules/auth/components/signup/signup.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
 import { MainComponent } from './modules/appointments/components/main/main.component';
+import { authGuard } from './core/guards/auth.guard';
+import { AppointmentsCreateComponent } from './modules/appointments/components/appointments-create/appointments-create.component';
 
 export const routes: Routes = [
     {
@@ -10,7 +12,7 @@ export const routes: Routes = [
         redirectTo: '/auth/login',
         pathMatch: 'full',
     },
-    
+
     {
         path: 'appointments',
         children: [
@@ -18,6 +20,12 @@ export const routes: Routes = [
                 path: 'main',
                 component: MainComponent,
                 children: [],
+                canActivate: [authGuard],
+            },
+            {
+                path: 'create',
+                component: AppointmentsCreateComponent,
+                canActivate: [authGuard],
             },
         ],
     },
