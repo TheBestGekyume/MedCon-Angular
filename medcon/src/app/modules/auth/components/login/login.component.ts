@@ -42,17 +42,19 @@ export class LoginComponent {
     this.authService.login(payload).pipe(
       takeUntilDestroyed(this.destroyRef)
     )
-    .subscribe({
-      next:(response) => {
-        sessionStorage.setItem('userToken', response.token);
-        this.router.navigate(['/appointments/main']);
-      },
-      error: (error) => {
-        console.log(error);
-      }
-    })
-    
-  
+      .subscribe({
+        next: (response) => {
+          sessionStorage.setItem('userToken', response.token);
+          sessionStorage.setItem('userEmail', response.user.email);
+          sessionStorage.setItem('userName', response.user.name);
+          this.router.navigate(['/appointments']);
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
+
+
 
   }
 
