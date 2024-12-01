@@ -11,7 +11,7 @@ export const rolesGuard: CanActivateFn = (activatedRoute) => {
         const userCanDo = activatedRoute.data['roles'].includes(role);
         return userCanDo
           ? true
-          : createUrlTreeFromSnapshot(activatedRoute, ['/', 'auth', 'login']);
+          : createUrlTreeFromSnapshot(activatedRoute, ['/appointments/']);
       })
     );
 };

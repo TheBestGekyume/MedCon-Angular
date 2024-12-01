@@ -3,16 +3,18 @@ import { AppointmentsService } from '../../modules/appointments/services/appoint
 import { Router, RouterLink } from '@angular/router';
 import { Appointment } from '../../modules/appointments/models/appointments.model';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
 export class CardComponent {
   appointments: Appointment[] = []
+  // appointment?: Appointment = {} as Appointment;
 
   constructor(
     private appointmentsService:AppointmentsService,
@@ -38,7 +40,22 @@ export class CardComponent {
       });
   }
 
+  getAppointmentsById(id: string): Appointment | void{
+    this.appointmentsService
+      .getAppointmentsById(id)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (res: Appointment) => {
+          return res;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+  }
+
   deleteAppointment(id:string):void{
+    alert("Deseja Deletar o agendamento?")
     this.appointmentsService
     .deleteAppointments(id)
     .pipe(takeUntilDestroyed(this.destroyRef))
@@ -52,4 +69,36 @@ export class CardComponent {
     })
   }
 
+  doneAppointment(appointment:Appointment):void{
+    alert("Deseja Marcar o agendamento como feito?")
+    this.appointmentsService
+    .doneAppointment(appointment)
+    .pipe(takeUntilDestroyed(this.destroyRef))
+    .subscribe({
+      complete:()=>{
+        this.getAppointments()
+      },
+      error:(error) =>{
+        console.log(error);
+      },
+    })
+  }
+
+  cancelAppointment(appointment:Appointment):void{
+    alert("Deseja cancelar o agendamento?")
+    this.appointmentsService
+    .cancelAppointment(appointment)
+    .pipe(takeUntilDestroyed(this.destroyRef))
+    .subscribe({
+      complete:()=>{
+        this.getAppointments()
+      },
+      error:(error) =>{
+        console.log(error);
+      },
+    })
+  }
+
+
+  
 }

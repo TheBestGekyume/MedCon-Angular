@@ -16,26 +16,8 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       Authorization: 'Bearer ' + token,
     },
   });
-
-  console.log('token',token);
-  console.log('req', newReq);
-  
   
 
-  // return next(newReq).pipe(
-  //   catchError((err: unknown) => {
-  //     if (err instanceof HttpErrorResponse) {
-  //       if (
-  //         err.status === HttpStatusCode.Unauthorized ||
-  //         err.status === HttpStatusCode.Forbidden
-  //       ) {
-  //         router.navigate(['/auth/login']);
-  //       }
-  //     }
-
-  //     return throwError(() => err);
-  //   })
-  // );
 
   return next(newReq).pipe(
     catchError((err: unknown) => {

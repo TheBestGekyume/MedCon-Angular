@@ -27,15 +27,18 @@ export const routes: Routes = [
             {
                 path: 'create',
                 component: AppointmentsCreateComponent,
-                canActivate: [authGuard],
-                // data: {
-                //     roles: [UserRoles.ADMIN],
-                // }
+                canActivate: [authGuard, rolesGuard],
+                data: {
+                    roles: [UserRoles.ADMIN],
+                }
             },
             {
-                path: 'edit',
+                path: 'edit/',
                 component: AppointmentsCreateComponent,
-                canActivate: [authGuard],
+                canActivate: [authGuard, rolesGuard],
+                data: {
+                    roles: [UserRoles.ADMIN],
+                }
             },
         ],
     },
