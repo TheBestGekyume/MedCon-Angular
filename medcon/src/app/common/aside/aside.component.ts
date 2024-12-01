@@ -14,10 +14,20 @@ import { RouterLink } from '@angular/router';
 })
 
 
+
 export class AsideComponent {
   logout(): void {
     sessionStorage.removeItem('userToken')
     sessionStorage.removeItem('userEmail')
     sessionStorage.removeItem('userName')
   }
+
+  
+
+  getUserName():string | null{
+    return sessionStorage.getItem('userName') 
+  }
+
+
+
 }
