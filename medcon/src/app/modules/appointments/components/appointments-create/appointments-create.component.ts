@@ -27,12 +27,11 @@ import { Appointment } from '../../models/appointments.model';
 })
 export class AppointmentsCreateComponent {
   appointmentForm: FormGroup = new FormGroup({
-    speciality: new FormControl(null, [Validators.required]),
+    specialty: new FormControl(null, [Validators.required]),
     doctor: new FormControl(null, [Validators.required]),
     date: new FormControl(null, [Validators.required]),
     time: new FormControl(null, [Validators.required]),
     obs: new FormControl(null, [Validators.required]),
-    status: new FormControl(null, [Validators.required])
   })
 
   id?: string;
@@ -76,6 +75,7 @@ export class AppointmentsCreateComponent {
       this.updateAppointments(payload)
       return
     }
+    console.log(payload)
     this.saveAppointments(payload)
   }
 

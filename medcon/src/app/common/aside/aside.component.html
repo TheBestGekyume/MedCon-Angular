@@ -13,7 +13,7 @@
 
     <div class="user-container">
       <i class="fa-regular fa-user user-icon"></i>
-      <p class="user-message">Bem vindo, User</p>
+      <p class="user-message">Bem vindo, {{getUserName()}}</p>
 
       <button routerLink="/auth/login" (click)="logout()" class="btn buttonPink">Log Out</button>
     </div>

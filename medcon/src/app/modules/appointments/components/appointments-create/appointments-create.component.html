@@ -7,7 +7,7 @@
         <form [formGroup]="appointmentForm" class="d-flex flex-column p-3">
             <mat-form-field appearance="outline">
                 <mat-label>Especialidade</mat-label>
-                <input formControlName="speciality" type="text" matInput />
+                <input formControlName="specialty" type="text" matInput />
             </mat-form-field>
 
             <mat-form-field appearance="outline">
@@ -28,15 +28,6 @@
             <mat-form-field appearance="outline">
                 <mat-label>Observações</mat-label>
                 <textarea formControlName="obs" cdkTextareaAutosize matInput></textarea>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Status</mat-label>
-                <select matNativeControl required formControlName="status">
-                    <option value="ATIVO" selected>Ativo</option>
-                    <option value="ANDAMENTO">Andamento</option>
-                    <option value="INATIVO">Inativo</option>
-                </select>
             </mat-form-field>
 
             <button class="btn buttonPink" (click)="onSubmit()" type="submit">

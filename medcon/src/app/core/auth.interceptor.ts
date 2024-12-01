@@ -17,6 +17,26 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     },
   });
 
+  console.log('token',token);
+  console.log('req', newReq);
+  
+  
+
+  // return next(newReq).pipe(
+  //   catchError((err: unknown) => {
+  //     if (err instanceof HttpErrorResponse) {
+  //       if (
+  //         err.status === HttpStatusCode.Unauthorized ||
+  //         err.status === HttpStatusCode.Forbidden
+  //       ) {
+  //         router.navigate(['/auth/login']);
+  //       }
+  //     }
+
+  //     return throwError(() => err);
+  //   })
+  // );
+
   return next(newReq).pipe(
     catchError((err: unknown) => {
       if (err instanceof HttpErrorResponse) {
@@ -25,6 +45,12 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
           err.status === HttpStatusCode.Forbidden
         ) {
           router.navigate(['/auth/login']);
+        }
+        if (err.status === HttpStatusCode.InternalServerError) {
+          alert('Erro de servidor');
+        }
+        if (err.status === HttpStatusCode.NotFound) {
+          alert('Url não encontrada');
         }
       }
 
