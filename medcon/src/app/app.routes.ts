@@ -5,8 +5,6 @@ import { NotFoundComponent } from './common/not-found/not-found.component';
 import { MainComponent } from './modules/appointments/components/main/main.component';
 import { authGuard } from './core/guards/auth.guard';
 import { AppointmentsCreateComponent } from './modules/appointments/components/appointments-create/appointments-create.component';
-import { rolesGuard } from './core/guards/roles.guard';
-import { UserRoles } from './core/constants/user-roles.enum';
 
 export const routes: Routes = [
     {
@@ -27,18 +25,13 @@ export const routes: Routes = [
             {
                 path: 'create',
                 component: AppointmentsCreateComponent,
-                canActivate: [authGuard, rolesGuard],
-                data: {
-                    roles: [UserRoles.ADMIN],
-                }
+                canActivate: [authGuard],
+              
             },
             {
                 path: 'edit/',
                 component: AppointmentsCreateComponent,
-                canActivate: [authGuard, rolesGuard],
-                data: {
-                    roles: [UserRoles.ADMIN],
-                }
+                canActivate: [authGuard],
             },
         ],
     },

@@ -10,6 +10,7 @@ import { AppointmentsService } from '../../services/appointments.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Appointment } from '../../models/appointments.model';
+import { User } from '../../../auth/models/user.model';
 
 @Component({
   selector: 'app-appointments-create',
@@ -32,9 +33,11 @@ export class AppointmentsCreateComponent {
     date: new FormControl(null, [Validators.required]),
     time: new FormControl(null, [Validators.required]),
     obs: new FormControl(null, [Validators.required]),
+    userId: new FormControl(null, [Validators.required]),
   })
 
   id?: string;
+  users: User[] |void = [];
 
   constructor(
     private appointmentsService: AppointmentsService,
@@ -46,6 +49,9 @@ export class AppointmentsCreateComponent {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id']
+    
+    console.log("this.user:", this.getUsers())
+
     if (this.id) {
       this.getAppointmentsById()
     }
@@ -89,7 +95,6 @@ export class AppointmentsCreateComponent {
         },
         error: (error) => {
           console.log(error);
-
         }
       })
   }
@@ -106,5 +111,17 @@ export class AppointmentsCreateComponent {
         }
       })
   }
+
+  getUsers(): void {
+    this.appointmentsService.getUsers().subscribe({
+      next: (response) => {
+        this.users = response as User[];
+      },
+      error: (error) => {
+        console.error('Erro ao buscar usuários:', error);
+      },
+    });
+  }
+  
 
 }
