@@ -18,7 +18,7 @@ export class SecurityService {
 
   checkUserRoles(): Observable<UserRoles> {
     const role =
-      (sessionStorage.getItem('USER_ROLE') as UserRoles) ?? UserRoles.USER;
+      (sessionStorage.getItem('userRole') as UserRoles) ?? UserRoles.USER;
     return new Observable<UserRoles>((observer) => observer.next(role));
   }
 }

@@ -8,6 +8,7 @@ import { Appointment } from '../models/appointments.model';
 })
 export class AppointmentsService {
   apiUrl = 'http://localhost:3000/appointments';
+  apiUser = 'http://localhost:3000/users';
 
   constructor(private http: HttpClient) { }
 
@@ -37,5 +38,9 @@ export class AppointmentsService {
 
   doneAppointment(appointment:Appointment):Observable<void>{
     return this.http.put<void>(`${this.apiUrl}/done/${appointment.id}`, appointment);
+  }
+
+  getUsers(){
+    return this.http.get(this.apiUser);
   }
 }

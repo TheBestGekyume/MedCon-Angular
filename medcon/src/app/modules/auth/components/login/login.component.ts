@@ -45,8 +45,9 @@ export class LoginComponent {
       .subscribe({
         next: (response) => {
           sessionStorage.setItem('userToken', response.token);
-          sessionStorage.setItem('userEmail', response.user.email);
+          // sessionStorage.setItem('userEmail', response.user.email);
           sessionStorage.setItem('userName', response.user.name);
+          sessionStorage.setItem('userRole', response.user.role);
           this.router.navigate(['/appointments']);
         },
         error: (error) => {
