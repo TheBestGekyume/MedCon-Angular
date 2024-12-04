@@ -4,22 +4,29 @@
         <div class="card shadow border-0">
             <div class="card-body p-4">
                 <h3 class="card-title mb-3 fs-4"><strong>Médico: </strong>{{appointment.doctor}}</h3>
-                <div class="d-flex justify-content-between flex-wrap gap-3 mb-3">
+                <div class="d-flex justify-content-between flex-wrap gap-3 mb-3">                    
                     <p class="fs-6 m-0"><strong>Especialidade: </strong>{{appointment.specialty}}</p>
+                    @for (user of users; track user.id) {
+                        @if (user.id === appointment.userId) {
+                            <p class="fs-6 m-0"><strong>Paciente: </strong>{{user.name}}</p>
+                        }
+                    }
                     <p class="fs-6 m-0"><strong>Data da consulta: </strong>{{appointment.date | date: "dd/MM/yyyy"}}</p>
                     <p class="fs-6 m-0"><strong>Horário da consulta: </strong>{{appointment.time}}</p>
                     <p class="fs-6 m-0"><strong>Observações: </strong>{{appointment.obs}}</p>
                     <p class="fs-6 m-0"><strong>Status: </strong>
                         <span *ngIf="appointment.status === 'SCHEDULED'" class="badge bg-primary">Agendado</span>
-                        <span *ngIf="appointment.status === 'CANCELED'" class="badge bg-warning text-dark">Cancelado</span>
+                        <span *ngIf="appointment.status === 'CANCELED'"
+                            class="badge bg-warning text-dark">Cancelado</span>
                         <span *ngIf="appointment.status === 'DONE'" class="badge bg-success">Concluído</span>
                     </p>
                 </div>
 
 
-                <div class="d-flex gap-3 justify-content-end mt-4" >
+                <div class="d-flex gap-3 justify-content-end mt-4">
 
-                    <button class="btn btn-primary" routerLink="/appointments/edit/{{appointment.id}}" *ngIf="appointment.status === 'SCHEDULED'">
+                    <button class="btn btn-primary" routerLink="/appointments/edit/{{appointment.id}}"
+                        *ngIf="appointment.status === 'SCHEDULED'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-pencil-fill" viewBox="0 0 16 16">
                             <path
@@ -27,7 +34,8 @@
                         </svg>
                     </button>
 
-                    <button class="btn btn-success" (click)="doneAppointment(appointment)" *ngIf="appointment.status === 'SCHEDULED'">
+                    <button class="btn btn-success" (click)="doneAppointment(appointment)"
+                        *ngIf="appointment.status === 'SCHEDULED'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-check-circle-fill" viewBox="0 0 16 16">
                             <path
@@ -35,7 +43,8 @@
                         </svg>
                     </button>
 
-                    <button class="btn btn-warning" (click)="cancelAppointment(appointment)" *ngIf="appointment.status === 'SCHEDULED'">
+                    <button class="btn btn-warning" (click)="cancelAppointment(appointment)"
+                        *ngIf="appointment.status === 'SCHEDULED'">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff"
                             class="bi bi-x-circle-fill" viewBox="0 0 16 16">
                             <path
