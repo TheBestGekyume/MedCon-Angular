@@ -1,9 +1,10 @@
-import { Component, DestroyRef, OnInit } from '@angular/core';
+import { Component, DestroyRef} from '@angular/core';
 import { AppointmentsService } from '../../modules/appointments/services/appointments.service';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { Appointment } from '../../modules/appointments/models/appointments.model';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-card',
@@ -12,14 +13,12 @@ import { CommonModule } from '@angular/common';
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
-export class CardComponent {
+export class CardComponent{
   appointments: Appointment[] = []
-  // appointment?: Appointment = {} as Appointment;
 
   constructor(
     private appointmentsService:AppointmentsService,
     private destroyRef: DestroyRef,
-    private router: Router
   ){}
 
   ngOnInit():void{
@@ -98,7 +97,4 @@ export class CardComponent {
       },
     })
   }
-
-
-  
 }

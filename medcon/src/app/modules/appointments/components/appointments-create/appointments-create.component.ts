@@ -21,7 +21,6 @@ import { User } from '../../../auth/models/user.model';
     MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
-    RouterLink,
   ],
   templateUrl: './appointments-create.component.html',
   styleUrl: './appointments-create.component.css'
@@ -33,7 +32,8 @@ export class AppointmentsCreateComponent {
     date: new FormControl(null, [Validators.required]),
     time: new FormControl(null, [Validators.required]),
     obs: new FormControl(null, [Validators.required]),
-    userId: new FormControl(null, [Validators.required]),
+    userId: new FormControl(null),
+    id: new FormControl(this.id)
   })
 
   id?: string;
@@ -50,7 +50,7 @@ export class AppointmentsCreateComponent {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id']
     
-    console.log("this.user:", this.getUsers())
+    this.getUsers()
 
     if (this.id) {
       this.getAppointmentsById()
@@ -78,6 +78,7 @@ export class AppointmentsCreateComponent {
   onSubmit(): void {
     const payload: Appointment = this.appointmentForm.getRawValue()
     if (this.id) {
+ 
       this.updateAppointments(payload)
       return
     }
@@ -123,5 +124,13 @@ export class AppointmentsCreateComponent {
     });
   }
   
+ checkRole():boolean{
+  const role = sessionStorage.getItem('userRole')
 
+  if(role === 'ADMIN'){
+    return true
+  } else{
+    return false
+  }
+ }
 }
