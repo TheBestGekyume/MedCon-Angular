@@ -29,7 +29,7 @@ export const routes: Routes = [
               
             },
             {
-                path: 'edit/',
+                path: 'edit/:id',
                 component: AppointmentsCreateComponent,
                 canActivate: [authGuard],
             },

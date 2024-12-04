@@ -1,7 +1,7 @@
 <app-aside class="h-100 "></app-aside>
 
 <section class="container-fluid d-flex flex-column justify-content-center align-items-center vh-100 ">
-    <h1 class="logo mt-0 p-3"><span class="logo-med">Agendar</span> Consulta</h1>
+    <h1 class="logo mt-0 p-3"><span class="logo-med">{{id ? "Editar":"Agendar"}}</span> Consulta</h1>
 
     <div class="sign-up form-transparent">
         <form [formGroup]="appointmentForm" class="d-flex flex-column p-3">
@@ -30,16 +30,18 @@
                 <textarea formControlName="obs" cdkTextareaAutosize matInput></textarea>
             </mat-form-field>
 
-            <mat-form-field appearance="outline">
-                <mat-label>Paciente</mat-label>
-                <mat-select formControlName="userId">
-                    @for (user of this.users; track user) {
-                      <mat-option [value]="user.id">{{user.name}}</mat-option>
-                    }
-                  </mat-select>
-            </mat-form-field>
-
-            <button class="btn buttonPink" (click)="onSubmit()" type="submit">
+            @if(checkRole()){
+                <mat-form-field appearance="outline">
+                    <mat-label>Paciente</mat-label>
+                    <mat-select formControlName="userId">
+                        @for (user of this.users; track user) {
+                          <mat-option [value]="user.id">{{user.name}}</mat-option>
+                        }
+                      </mat-select>
+                </mat-form-field>
+            }
+            
+            <button class="btn buttonPink" (click)="onSubmit()" type="submit" [disabled]="appointmentForm.invalid">
                 Cadastrar Consulta
             </button>
 
