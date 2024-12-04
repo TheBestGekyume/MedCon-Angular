@@ -52,10 +52,12 @@ export class SignupComponent {
           },
           error: (error) => {
             console.log(error);
+            alert(error.error.message);
           }
         })
     } else {
       console.error("Formulário inválido ou senhas não coincidem.");
+      alert("Senhas não coincidem. Por favor, verifique.");
     }
   }
 

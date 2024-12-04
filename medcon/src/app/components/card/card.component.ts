@@ -18,6 +18,7 @@ export class CardComponent {
   appointments: Appointment[] = []
   userName: string = ''
   users: User[] = []
+  currentUserRole:string = '';
 
   constructor(
     private appointmentsService: AppointmentsService,
@@ -27,6 +28,7 @@ export class CardComponent {
 
   ngOnInit(): void {
     this.loadData();
+    this.currentUserRole = sessionStorage.getItem('userRole') || '';
   }
 
   loadData(): void {
@@ -79,7 +81,7 @@ export class CardComponent {
         })
     }
   }
-  
+
   cancelAppointment(appointment: Appointment): void {
     if (confirm("Deseja cancelar o agendamento ?")) {
       this.appointmentsService
