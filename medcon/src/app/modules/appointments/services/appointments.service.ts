@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Appointment } from '../models/appointments.model';
+import { User } from '../../auth/models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -40,7 +41,7 @@ export class AppointmentsService {
     return this.http.put<void>(`${this.apiUrl}/done/${appointment.id}`, appointment);
   }
 
-  getUsers(){
-    return this.http.get(this.apiUser);
+  getUsers(): Observable<User[]> {
+    return this.http.get(this.apiUser) as Observable<User[]>;
   }
 }
