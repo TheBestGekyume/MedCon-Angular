@@ -7,7 +7,7 @@
                 <div class="d-flex justify-content-between flex-wrap gap-3 mb-3">                    
                     <p class="fs-6 m-0"><strong>Especialidade: </strong>{{appointment.specialty}}</p>
                     @for (user of users; track user.id) {
-                        @if (user.id === appointment.userId) {
+                        @if (user.id === appointment.userId && currentUserRole === 'ADMIN') {
                             <p class="fs-6 m-0"><strong>Paciente: </strong>{{user.name}}</p>
                         }
                     }
@@ -69,7 +69,7 @@
 
     <span #userId type="text" value=></span>
     } @empty {
-    <div>Nenhum produto encontrado</div>
+    <div class="bg-dark">Nenhum produto encontrado</div>
     }
 
 </div>
