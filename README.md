@@ -127,7 +127,7 @@ A aplicação conecta-se a uma API para persistência e gerenciamento dos dados 
 
 4. **Inicie o servidor de desenvolvimento**:
    ```bash
-   ng serve
+   npm start
    ```
    - Acesse: `http://localhost:4200`.
 
