@@ -114,18 +114,14 @@ A aplicação conecta-se a uma API para persistência e gerenciamento dos dados 
 1. **Clone o repositório**:
    ```bash
    git clone https://github.com/SEU-USUARIO/medcon-angular.git
-   cd medcon-angular
    ```
 
-2. **Instale as dependências**:
+2. **Instale as dependências do projeto e da API**:
    ```bash
    npm install
    ```
 
-3. **Configure o ambiente**:
-   - Atualize as variáveis em `src/environments` com a URL da API.
-
-4. **Inicie o servidor de desenvolvimento**:
+3. **Inicie o Front-Ende a API com**:
    ```bash
    npm start
    ```
