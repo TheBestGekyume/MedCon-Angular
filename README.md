@@ -121,7 +121,7 @@ A aplicação conecta-se a uma API para persistência e gerenciamento dos dados 
    npm install
    ```
 
-3. **Inicie o Front-Ende a API com**:
+3. **Inicie o Front-End a API com**:
    ```bash
    npm start
    ```
