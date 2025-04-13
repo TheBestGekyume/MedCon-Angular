@@ -138,6 +138,6 @@ A aplicação conecta-se a uma API para persistência e gerenciamento dos dados 
 Desenvolvido por **[Gekyume Serna, Lucas Borges, Pedro Carvalho]** no curso **Santander Coders**:  
 - **Pedro Carvalho**: [GitHub](https://github.com/pdrLCarvalho)  
 - **Lucas Borges**: [GitHub](https://github.com/DOULORES)  
-- **Gekyumi**: [GitHub](https://github.com/TheBestGekyume)  
+- **Gekyume**: [GitHub](https://github.com/TheBestGekyume)  
 
 **Transformando a gestão médica com tecnologia!**
